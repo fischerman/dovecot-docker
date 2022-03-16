@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:21.10
 
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
@@ -15,6 +15,7 @@ RUN mkdir -p /var/vmail && \
 
 RUN cp -r /etc/dovecot /dovecot-template
 RUN rm -r /etc/dovecot/
+RUN dovecot --version
 
 EXPOSE 24 143 993 12345 10026
 
